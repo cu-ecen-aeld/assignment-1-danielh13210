@@ -14,17 +14,20 @@ if [ -z "$QUERY" ]; then
     exit 1
 fi
 fcount=0
+lcount=0
 function iterate { path=$1;query=$2
     old=$PWD
     cd $path
     for fso in *; do
         if [ -d $fso ]; then
-            iterate $fso $query
+            iterate "$fso" "$query"
         else
             ((fcount++))
+            numlines=$(/bin/grep "$query" "$fso" | wc -l)
+            ((lcount+=$numlines))
         fi
     done
     cd $old
 }
-iterate $SEARCHDIR $QUERY
-echo  "The number of files are $fcount and the number of matching lines are $lcount"
+iterate "$SEARCHDIR" "$QUERY"
+printf  "The number of files are %i and the number of matching lines are %i" $fcount $lcount
