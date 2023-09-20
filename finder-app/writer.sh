@@ -11,7 +11,7 @@ if [ -z "$CONTENT" ]; then
 fi
 if [ ! -f "$FILE" ]; then
     touch "$FILE"
-    if [ ! ( -f "$FILE" ) ]; then
+    if [ ! -f "$FILE" ]; then
         exit 1
     fi
 fi
