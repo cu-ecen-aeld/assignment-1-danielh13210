@@ -7,6 +7,7 @@ if [ -z "$SEARCHDIR" ]; then
 fi
 if [ ! -d "$SEARCHDIR" ]; then
     printf "%s: no such directory" "$SEARCHDIR" > /dev/stderr
+    exit 1
 fi
 if [ -z "$QUERY" ]; then
     echo "ERROR: QUERY not specified" > /dev/stderr
