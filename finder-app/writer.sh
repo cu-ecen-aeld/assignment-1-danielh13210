@@ -9,7 +9,7 @@ if [ -z "$CONTENT" ]; then
     echo "ERROR: CONTENT not specified" > /dev/stderr
     exit 1
 fi
-if [ ! ( -f "$FILE" ) ]; then
+if [ ! -f "$FILE" ]; then
     touch "$FILE"
     if [ ! ( -f "$FILE" ) ]; then
         exit 1
