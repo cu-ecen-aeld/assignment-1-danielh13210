@@ -1,14 +1,14 @@
 #!/bin/bash
 SEARCHDIR="$1"
 QUERY="$2"
-if [ ! -z "$SEARCHDIR" ] then
+if [ ! -z "$SEARCHDIR" ]; then
     echo "ERROR: SEARCHDIR not specified" > /dev/stderr
     exit 1
 fi
-if [ ! -d "$SEARCHDIR" ] then
+if [ ! -d "$SEARCHDIR" ]; then
     printf "%s: no such directory" "$SEARCHDIR" > /dev/stderr
 fi
-if [ ! -z "$QUERY" ] then
+if [ ! -z "$QUERY" ]; then
     echo "ERROR: QUERY not specified" > /dev/stderr
     exit 1
 fi
