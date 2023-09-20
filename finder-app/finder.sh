@@ -6,7 +6,7 @@ if [ -z "$SEARCHDIR" ]; then
     exit 1
 fi
 if [ ! -d "$SEARCHDIR" ]; then
-    printf "%s: no such directory" "$SEARCHDIR" > /dev/stderr
+    printf "%s: no such directory\n" "$SEARCHDIR" > /dev/stderr
     exit 1
 fi
 if [ -z "$QUERY" ]; then
