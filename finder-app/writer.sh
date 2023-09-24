@@ -9,12 +9,10 @@ if [ -z "$CONTENT" ]; then
     echo "ERROR: CONTENT not specified" > /dev/stderr
     exit 1
 fi
+mkdir -p "$(dirname \"$FIlE\")"
+echo "$CONTENT" > $FILE
 if [ ! -f "$FILE" ]; then
-    touch "$FILE"
-    if [ ! -f "$FILE" ]; then
-        exit 1
-    fi
+    exit 1
 fi
-echo "$CONTENT" > "$FILE"
 echo "$CONTENT" > /tmp/expected
 diff /tmp/expected "$FILE" && exit 1
