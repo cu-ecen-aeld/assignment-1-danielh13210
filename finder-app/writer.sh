@@ -9,7 +9,8 @@ if [ -z "$CONTENT" ]; then
     echo "ERROR: CONTENT not specified" > /dev/stderr
     exit 1
 fi
-mkdir -p "$(dirname \"$FIlE\")"
+PARENT=$(dirname $FILE)
+mkdir -p $PARENT
 echo "$CONTENT" > $FILE
 if [ ! -f "$FILE" ]; then
     exit 1
